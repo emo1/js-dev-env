@@ -3,6 +3,12 @@
   "version": "1.0.0",
   "description": "JavaScript development environment Pluralsight course by Cory House",
   "scripts": {
+    "prestart": "node build_scripts/start_message.js",
+    "start": "npm-run-all --parallel security-check open:server",
+    "open:server": "node build_scripts/server.js",
+    "security-check": "nsp check",
+    "localtunnel": "lt --port 3000",
+    "share": "npm-run-all --parallel open:server localtunnel"
   },
   "author": "Emil Dimitrov",
   "license": "MIT",
